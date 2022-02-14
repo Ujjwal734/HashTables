@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using HashTables;
+Console.WriteLine("Hello, Welcome to Hash Table Programme...!");
+MapNode<string, string> hash = new MapNode<string, string>(5);
+hash.Add("0", "To");
+hash.Add("1", "Be");
+hash.Add("2", "Or");
+hash.Add("3", "Not");
+hash.Add("4", "To");
+hash.Add("5", "Be");
+string hash5 = hash.Get("5");
+Console.WriteLine("5th index value :- " + hash5);
