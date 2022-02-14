@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ namespace HashTables
 {
     public class MapNode<K, V>
     {
-        public readonly int size;
-        public readonly LinkedList<KeyValue<K, V>>[] items;
+        private readonly int size;
+        private readonly LinkedList<KeyValue<K, V>>[] items;
 
         public MapNode(int size)
         {
@@ -39,10 +40,12 @@ namespace HashTables
             LinkedList<KeyValue<K, V>> linkedList = items[position];
             if (linkedList == null)
             {
-                return linkedList;
+                linkedList = new LinkedList<KeyValue<K, V>>();
+                items[position] = linkedList;
+                // return linkedList;
             }
-            linkedList = new LinkedList<KeyValue<K, V>>();
-            items[position] = linkedList;
+           // linkedList = new LinkedList<KeyValue<K, V>>();
+            //items[position] = linkedList;
             return linkedList;
         }
         public V Get(K Key)
